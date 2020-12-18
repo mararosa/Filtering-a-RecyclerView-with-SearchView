@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Filtering RecyclerView</string>
+    <string name="enter_name_animal">Enter animal name</string>
 </resources>
