@@ -1,8 +1,10 @@
-package com.codingwithmitch.filteringrecyclerview;
+package com.codingwithmitch.filteringrecyclerview.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.codingwithmitch.filteringrecyclerview.R;
 
 public class MainActivity extends AppCompatActivity {
 
