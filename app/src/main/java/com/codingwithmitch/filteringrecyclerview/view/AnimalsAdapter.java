@@ -1,17 +1,23 @@
 package com.codingwithmitch.filteringrecyclerview.view;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codingwithmitch.filteringrecyclerview.Name;
+import com.codingwithmitch.filteringrecyclerview.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalsAdapter extends RecyclerView.Adapter implements Filterable {
+public class AnimalsAdapter implements Filterable {
 
     private Context context;
     private List<Name> nameList;
@@ -23,7 +29,6 @@ public class AnimalsAdapter extends RecyclerView.Adapter implements Filterable {
         this.nameList = nameList;
         this.filteredNameList = nameList;
     }
-
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -52,5 +57,15 @@ public class AnimalsAdapter extends RecyclerView.Adapter implements Filterable {
                 notifyDataSetChanged();
             }
         };
+    }
+
+    public class AnimalsViewHolder extends RecyclerView.ViewHolder {
+
+        private AppCompatTextView tvName;
+
+        public AnimalsViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.tv_name);
+        }
     }
 }
