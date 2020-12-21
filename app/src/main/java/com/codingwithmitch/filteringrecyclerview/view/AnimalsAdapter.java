@@ -1,13 +1,13 @@
 package com.codingwithmitch.filteringrecyclerview.view;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +17,7 @@ import com.codingwithmitch.filteringrecyclerview.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalsAdapter implements Filterable {
+public class AnimalsAdapter extends RecyclerView.Adapter<AnimalsAdapter.AnimalsViewHolder> implements Filterable {
 
     private Context context;
     private List<Name> nameList;
@@ -29,6 +29,24 @@ public class AnimalsAdapter implements Filterable {
         this.nameList = nameList;
         this.filteredNameList = nameList;
     }
+
+    @NonNull
+    @Override
+    public AnimalsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        return new AnimalsViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull AnimalsViewHolder holder, int position) {
+        holder.tvName.setText(filteredNameList.get(position).getName());
+    }
+
+    @Override
+    public int getItemCount() {
+        return filteredNameList.size();
+    }
+
     @Override
     public Filter getFilter() {
         return new Filter() {
