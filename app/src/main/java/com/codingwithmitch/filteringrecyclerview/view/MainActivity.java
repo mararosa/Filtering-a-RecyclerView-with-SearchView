@@ -51,6 +51,20 @@ public class MainActivity extends AppCompatActivity {
         addNameToList("Coyote");
         
         initRecyclerView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                animalsAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                animalsAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
     private void initRecyclerView() {
