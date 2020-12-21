@@ -1,11 +1,11 @@
 package com.codingwithmitch.filteringrecyclerview.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.SearchView;
 
 import com.codingwithmitch.filteringrecyclerview.Name;
 import com.codingwithmitch.filteringrecyclerview.R;
@@ -16,7 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Name> nameList = new ArrayList<>();
-    private SearchView searchView;
+    private androidx.appcompat.widget.SearchView searchView;
     private RecyclerView recyclerView;
     private AnimalsAdapter animalsAdapter;
 
@@ -46,10 +46,7 @@ public class MainActivity extends AppCompatActivity {
         addNameToList("Snakes");
         addNameToList("Whales");
         addNameToList("Monkey");
-        addNameToList("Cow");
-        addNameToList("Fish");
-        addNameToList("Coyote");
-        
+
         initRecyclerView();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
