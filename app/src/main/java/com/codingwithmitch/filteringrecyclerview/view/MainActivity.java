@@ -9,13 +9,13 @@ import android.os.Bundle;
 
 import com.codingwithmitch.filteringrecyclerview.Name;
 import com.codingwithmitch.filteringrecyclerview.R;
+import com.codingwithmitch.filteringrecyclerview.common.DummyData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Name> nameList = new ArrayList<>();
     private androidx.appcompat.widget.SearchView searchView;
     private RecyclerView recyclerView;
     private AnimalsAdapter animalsAdapter;
@@ -30,30 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         searchView = findViewById(R.id.search_view);
         recyclerView = findViewById(R.id.recycler_view);
-
-        addNameToList("Giraffe");
-        addNameToList("Tiger");
-        addNameToList("Rhinoceros");
-        addNameToList("Cat");
-        addNameToList("Dog");
-        addNameToList("Bird");
-        addNameToList("Lion");
-        addNameToList("Elephant");
-        addNameToList("Bear");
-        addNameToList("Cattle");
-        addNameToList("Wolf");
-        addNameToList("Rabbit");
-        addNameToList("Snakes");
-        addNameToList("Whales");
-        addNameToList("Fish");
-        addNameToList("Cow");
-        addNameToList("Shark");
-        addNameToList("Deer");
-        addNameToList("Fox");
-        addNameToList("Crocodile");
-        addNameToList("Monkey");
-
-        initRecyclerView();
+        initRecyclerView(DummyData.getDummyName());
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -70,15 +47,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView(List<Name> nameList) {
         animalsAdapter = new AnimalsAdapter(this, nameList);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(animalsAdapter);
-    }
-
-    private void addNameToList(String name) {
-        nameList.add(new Name(name));
     }
 }
