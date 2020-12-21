@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         addNameToList("Deer");
         addNameToList("Fox");
         addNameToList("Crocodile");
+        addNameToList("Monkey");
 
         initRecyclerView();
 
