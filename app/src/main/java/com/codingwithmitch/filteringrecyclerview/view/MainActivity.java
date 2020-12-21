@@ -45,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
         addNameToList("Rabbit");
         addNameToList("Snakes");
         addNameToList("Whales");
-        addNameToList("Monkey");
+        addNameToList("Fish");
+        addNameToList("Cow");
+        addNameToList("Shark");
+        addNameToList("Deer");
+        addNameToList("Fox");
+        addNameToList("Crocodile");
 
         initRecyclerView();
 
